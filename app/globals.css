@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: #F7F5F0; color: #111111; }
+
+@layer components {
+  .cut-diagonal { clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
+  .cut-diagonal-soft { clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%); }
+  .label { @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-muted; }
+  .num { font-variant-numeric: tabular-nums lining-nums; }
+  .focus-ring { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-2 focus-visible:ring-offset-ivory; }
+  .card { @apply rounded-[10px] bg-white shadow-card; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  body { background: #fff !important; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  @page { margin: 12mm; }
+}
+.print-only { display: none; }
